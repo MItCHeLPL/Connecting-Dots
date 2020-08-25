@@ -5,16 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <meta name="author" content="Michał Myszor" />
-        <meta name="description" content="Lines between dots" />
+        <meta name="description" content="Connecting lines between dots visualizer" />
 
         <link rel="stylesheet" href="style.css" />
 
         <title>Lines between dots</title>
     </head>
     <body>
-        <div>
+        <div id="renderer">
             <canvas id="canvas"></canvas>
         </div>
+
+        <div id="settings">
+            Dot count <input type="number" id="dotsAmount" placeholder="Dot count" value="100" min="1" step="5" onchange="UpdateSettings()" /><br />
+            Speed multiplier <input type="number" id="speedMultiplier" placeholder="Speed multiplier" value="4" min="0" step="0.5" onchange="UpdateSettings()" /><br />
+            Distance to draw line <input type="number" id="distanceToDrawLine" placeholder="Distance to draw line" value="90" min="0" onchange="UpdateSettings()" /><br />
+            Color <input type="color" id="color" value="#FFFFFF" onchange="UpdateSettings()" /><br />
+            Background color <input type="color" id="bgColor" value="#212121" onchange="UpdateSettings()" /><br />
+            Dot radius <input type="number" id="dotRadius" placeholder="Dot radius" value="8" min="0" step="0.5" onchange="UpdateSettings()" /><br />
+            Line width <input type="number" id="lineWidth" placeholder="Line width" value="2" min="0" step="0.1" onchange="UpdateSettings()" />
+        </div>
+
+        <footer>
+            <p>
+                © Copyright <script>document.write(new Date().getFullYear());</script>, Michał Myszor<br />
+                <a href="https://github.com/MItCHeLPL">Github</a>
+            </p>
+        </footer>
 
         <script src="script.js"></script>
     </body>

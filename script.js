@@ -134,7 +134,7 @@ function RenderFrame()
         let dirX = dots[i][2];
         let dirY = dots[i][3];
 
-        const speed = Math.abs((dots[i][4] / fps) * speedMultiplier); //divide by fps so it's frame independent
+        const speed = (dots[i][4] * speedMultiplier) / fps; //divide by fps so it's frame independent
 
         //Move dot
         x += (dirX * speed);
@@ -235,6 +235,27 @@ function FixDotsPosition()
     }
 }
 
+function UpdateSettings()
+{
+    dotCount = document.getElementById("dotsAmount").value;
+    speedMultiplier = document.getElementById("speedMultiplier").value;
+    distanceToDrawLine = document.getElementById("distanceToDrawLine").value;
+
+    let color = hexToRgb(document.getElementById("color").value);
+    colorR = color.r;
+    colorG = color.g;
+    colorB = color.b;
+
+    document.getElementById("renderer").style.backgroundColor = document.getElementById("bgColor").value;
+
+    pointRadius = document.getElementById("dotRadius").value;
+    lineWidth = document.getElementById("lineWidth").value;
+
+    UpdateCanvas();
+    GenerateDots();
+    PrintSettingsInConsole();
+}
+
 function PrintSettingsInConsole()
 {
     //Print settings info in console
@@ -254,9 +275,9 @@ function PrintSettingsInConsole()
         ",\n\nSpeed multiplier: " + speedMultiplier +
 
         ",\n\nDistance to draw line: " + distanceToDrawLine +
-        ",\nDynamic line opacity enabled: " + dynamicLinesAlpha +
+        ",\n\nDynamic line opacity enabled: " + dynamicLinesAlpha +
 
-        ",\n\nRefresh screen every frame: " + refreshScreenEveryFrame + ".\n\n\n"
+        ",\nRefresh screen every frame: " + refreshScreenEveryFrame + ".\n\n\n"
     );
 }
 
@@ -271,4 +292,16 @@ function GetRandomInt(min, max)
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+//Convert hex color to rgb
+function hexToRgb(hex) 
+{
+    let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? 
+    {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
 }

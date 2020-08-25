@@ -5,10 +5,83 @@ body
     clear: both;
 }
 
-div
+#renderer
 {
     width: 100vw;
     height: 100vh;
 
     background-color: #212121;
+}
+
+/*Settings panel*/
+#settings
+{
+    width: 12em;
+
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 5;
+
+    padding-left:5px;
+
+    background-color: #191919;
+    color: white;
+
+    
+    opacity: .075;
+
+    animation-name: FadeOut;
+    animation-duration: .75s;
+}
+#settings:hover
+{
+    opacity: 1;
+}
+@keyframes FadeOut 
+{
+    from {opacity: 1;}
+    to {opacity: 0.075;}
+}
+
+input
+{
+    position: absolute;
+    right: 0;
+
+    width: 3em;
+    margin: 0;
+
+    text-align: right;
+
+    background-color:#191919;
+    color:white;
+    border:none;
+}
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button
+{
+    filter: invert(1);
+    opacity: 1;
+    margin-left: 3px;
+}
+input:focus
+{
+    outline: none;
+}
+
+
+/*Footer*/
+footer
+{
+    width:100%;
+    position: absolute;
+    bottom:0;
+    z-index: 10;
+
+    text-align: center;
+    font-size: 12px;
+}
+footer, footer a:visited, footer a:link
+{
+    color: gray;
 }
