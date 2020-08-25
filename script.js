@@ -1,9 +1,17 @@
 //Script settings
-var dotCount = 100;
+//Calculate settings to fit window scale
+var dotCount = Math.round(window.innerWidth * 0.05); //default 100
+document.getElementById("dotsAmount").value = dotCount; //put value into settings window
+
+var distanceToDrawLine = Math.round(window.innerWidth * 0.045); //default 90
+distanceToDrawLine = distanceToDrawLine < 60 ? 60 : distanceToDrawLine; //min 60 for wanted effect
+document.getElementById("distanceToDrawLine").value = distanceToDrawLine;
+
+var speedMultiplier = Math.round(window.innerWidth * 0.002); //default 4
+document.getElementById("speedMultiplier").value = speedMultiplier;
 
 var fps = 360; //frames per second
 
-var speedMultiplier = 4;
 var minDir = 0.25; //between 0-1
 
 var pointRadius = 8; 
@@ -13,8 +21,6 @@ var lineWidth = 2;
 var colorR = 255;
 var colorG = 255;
 var colorB = 255;
-
-var distanceToDrawLine = 90;
 
 var dynamicLinesAlpha = true;
 
