@@ -74,7 +74,7 @@ input:focus
 footer
 {
     width:100%;
-    position: absolute;
+    position: fixed;
     bottom:0;
     z-index: 10;
 
