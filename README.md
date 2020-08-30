@@ -1,6 +1,6 @@
 # Connecting Dots
 
-Randomly moving dots connecting with their close relatives using lines visualizer.
+### Randomly moving dots connecting with their close relatives using lines visualizer.
 
 ### [Check it out!](https://mitchelpl.github.io/Connecting-Dots/)
 
